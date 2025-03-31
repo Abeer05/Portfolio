@@ -1,9 +1,9 @@
 import { Suspense, useRef, useEffect } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import Loader from "../components/Loader";
-import Island from "../models/Island";
+import Island from "../models/Island.jsx";
 import { DirectionalLightHelper } from "three";
-import Sky from "../models/Sky";
+import Sky from "../models/Sky.jsx";
 
 {
   /* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
