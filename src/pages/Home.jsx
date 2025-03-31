@@ -1,8 +1,7 @@
 import { Suspense, useRef, useEffect } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import Loader from "../components/Loader";
-import Island from "../models/Island.jsx";
-import { DirectionalLightHelper } from "three";
+import Island from "../models/island.jsx";
 import Sky from "../models/Sky.jsx";
 
 {
