@@ -6,26 +6,33 @@ Source: https://sketchfab.com/3d-models/lowpoly-island-26c3f2f271ab41a5a0c9178ac
 Title: Lowpoly island
 */
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
 
+import islandScene from "../assets/3d/lowpoly_island.glb";
+
 const Island = (props) => {
-  const { nodes, materials } = useGLTF("/lowpoly_island.glb");
+  const islandRef = useRef();
+
+  const { nodes, materials } = useGLTF(islandScene);
+
+  const customMaterial = materials["Scene_-_Root"];
+  customMaterial.roughness = 0.9; // Adjust roughness
+  customMaterial.metalness = 0.3; // Adjust metalness
+
   return (
-    <a.group {...props} dispose={null}>
+    <a.group ref={islandRef} {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Object_2.geometry}
-        material={materials["Scene_-_Root"]}
+        material={customMaterial}
         rotation={[-Math.PI / 2, 0, 0]}
       />
     </a.group>
   );
 };
-
-useGLTF.preload("/lowpoly_island.glb");
 
 export default Island;
