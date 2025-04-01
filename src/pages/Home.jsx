@@ -20,7 +20,7 @@ const Home = () => {
 
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
-    let screenPosition = [-0.5, -1.5, 0.13];
+    let screenPosition = [-0.5, -1.5, 0.135];
     let rotation = [0, 3.2, 0.03];
 
     if (window.innerWidth < 768) {
@@ -79,7 +79,7 @@ const Home = () => {
           <directionalLight castShadow intensity={2} position={[2.5, 3, 0.5]} />
           <ambientLight intensity={1} />
           <Butterfly />
-          <Sky />
+          <Sky isRotating={isRotating} />
           <Island
             position={islandPosition}
             scale={islandScale}

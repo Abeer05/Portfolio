@@ -62,7 +62,7 @@ const Girl = ({ isRotating, ...props }) => {
       ref={ref}
       castShadow
       receiveShadow
-      position={[-0.1, -0.8, 3.39]}
+      position={[-0.1, -0.83, 3.4]}
       scale={[0.0015, 0.0015, 0.0015]}
     >
       <primitive object={scene} />
