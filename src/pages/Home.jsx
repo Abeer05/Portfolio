@@ -39,8 +39,8 @@ const Home = () => {
       screenScale = [1.5, 1.5, 1.5];
       screenPosition = [0, -1.5, 0];
     } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
+      screenScale = [0.0015, 0.0015, 0.0015];
+      screenPosition = [-0.1, -0.83, 3.4];
     }
 
     return [screenScale, screenPosition];
@@ -90,8 +90,8 @@ const Home = () => {
           />
           <Girl
             isRotating={isRotating}
-            girlScale={girlScale}
-            girlPosition={girlPosition}
+            scale={girlScale}
+            position={girlPosition}
             rotation={[0, 21, 0]}
           />
         </Suspense>

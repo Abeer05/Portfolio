@@ -57,14 +57,7 @@ const Girl = ({ isRotating, ...props }) => {
   }, []);
 
   return (
-    <mesh
-      {...props}
-      ref={ref}
-      castShadow
-      receiveShadow
-      position={[-0.1, -0.83, 3.4]}
-      scale={[0.0015, 0.0015, 0.0015]}
-    >
+    <mesh {...props} ref={ref} castShadow receiveShadow>
       <primitive object={scene} />
     </mesh>
   );
