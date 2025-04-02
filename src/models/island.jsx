@@ -74,22 +74,18 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     } else {
       const rotation = pivotRef.current.rotation.y;
 
-      // Normalize the rotation value to be between 0 and 2 * Math.PI
-      //   const normalizedRotation =
-      //     ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-
+      //   Normalize the rotation value to be between 0 and 2 * Math.PI
+      const normalizedRotation =
+        ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
       switch (true) {
-        case rotation >= 5.45 && rotation <= 5.85:
-          setCurrentStage(4);
+        case normalizedRotation >= 2.41 && normalizedRotation <= 3.03:
+          setCurrentStage(1);
           break;
-        case rotation >= 0.85 && rotation <= 1.3:
+        case normalizedRotation >= 4.72 && normalizedRotation <= 5.12:
           setCurrentStage(3);
           break;
-        case rotation >= 2.4 && rotation <= 2.6:
+        case normalizedRotation <= 0.73 || normalizedRotation >= 6.21:
           setCurrentStage(2);
-          break;
-        case rotation >= 4.25 && rotation <= 4.75:
-          setCurrentStage(1);
           break;
         default:
           setCurrentStage(null);

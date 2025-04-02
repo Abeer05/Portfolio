@@ -7,21 +7,17 @@ import Butterfly from "./Butterfly.jsx";
 import Girl from "./Girl.jsx";
 import { DirectionalLightHelper } from "three";
 import { useHelper } from "@react-three/drei";
-
-{
-  /* <div className="absolute tocp-28 left-0 right-0 z-10 flex items-center justify-center">
-        POPUP
-      </div> */
-}
+import HomeInfo from "../components/HomeInfo.jsx";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
-  const [CurrentStage, setCurrentStage] = useState(1);
+  const [currentStage, setCurrentStage] = useState(1);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
-    let screenPosition = [-0.5, -1.5, 0.135];
-    let rotation = [0, 3.2, 0.03];
+    let screenPosition = [-0.5, -1.5, 0.2];
+    let rotation = [0, 2.9, 0];
+    // let rotation = [0, -3.9, 0.03];
 
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9, 0.9];
@@ -40,7 +36,7 @@ const Home = () => {
       screenPosition = [0, -1.5, 0];
     } else {
       screenScale = [0.0015, 0.0015, 0.0015];
-      screenPosition = [-0.1, -0.83, 3.4];
+      screenPosition = [-0.1, -0.82, 3.45];
     }
 
     return [screenScale, screenPosition];
@@ -66,6 +62,9 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
