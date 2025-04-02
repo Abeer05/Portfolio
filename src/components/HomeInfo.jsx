@@ -29,7 +29,7 @@ const renderContent = {
   3: (
     <InfoBox
       text="Hiring a developer or need a project completed? I'm ready when you are!"
-      link={"/about"}
+      link={"/contact"}
       btnText={"Let's Talk!"}
     />
   ),
