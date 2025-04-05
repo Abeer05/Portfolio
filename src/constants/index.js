@@ -1,4 +1,3 @@
-import {} from "../assets/images";
 import {
   contact,
   css,
