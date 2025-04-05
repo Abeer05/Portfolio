@@ -21,6 +21,7 @@ import {
   bash,
   ruby,
   perl,
+  initials,
   linux,
   mapmymoments,
   moviemixer,
@@ -188,7 +189,7 @@ export const projects = [
     link: "https://github.com/theportcreditpost/theportcreditpost.github.io",
   },
   {
-    iconUrl: "../assets/initials.png",
+    iconUrl: initials,
     theme: "btn-back-pink",
     name: "Portfolio",
     description:

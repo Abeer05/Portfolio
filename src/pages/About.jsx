@@ -16,25 +16,25 @@ const About = () => {
           A second-year Computer Science Co-op student at Toronto Metropolitan
           University, passionate about solving real-world problems that push my
           limits and challenge me to think critically and creatively. I have a
-          strong foundation in software development, full-stack web development
-          (JavaScript, React, Node.js), and backend systems, and I am actively
-          expanding my knowledge in mobile development (React Native, Flutter),
-          AI-driven applications, and UI/UX design. I am currently seeking
-          Summer 2025 internships and am eager to apply my technical expertise,
-          problem-solving mindset, and collaboration skills in a dynamic work
-          environment.
+          strong foundation in software development, full-stack web development,
+          and backend systems, and I am actively expanding my knowledge in
+          mobile development, AI-driven applications, and UI/UX design. I am
+          currently seeking Summer 2025 internships and am eager to apply my
+          technical expertise, problem-solving mindset, and collaboration skills
+          in a dynamic work environment!
         </p>
         <p>
-          I love participating in hackathons and case competitions, as they
-          provide a great opportunity to apply my technical skills, solve
-          real-world challenges, work under time constraints, and showcase my
-          strong communication, leadership, and analytical skills. These
-          experiences have strengthened my ability to adapt quickly, collaborate
-          effectively, think outside the box, and work effectively within a
-          team. I enjoy collaborating and learning from others, and I am very
-          excited to combine our unique skillsets to create something truly
-          impactful! Whether its through coursework, hands-on projects, or
-          mentorship, I believe in continuous growth and innovation.
+          I really enjoy participating in hackathons and case competitions
+          because they give me the chance to mix tech and innovation in exciting
+          ways. These events allow me to apply my skills in fast-paced
+          environments while also letting me show off my leadership,
+          communication, and problem-solving abilities. Through these
+          experiences, I've become more adaptable and creative, working well
+          with others to tackle challenges as a team. I love collaborating with
+          people who bring different skills to the table and am always excited
+          to see what we can create together. Whether it's through hands-on
+          projects, coursework, or mentorship, I'm always looking to try new
+          things!
         </p>
         <p>
           I'd love to connect with like-minded individuals who share my interest

@@ -30,6 +30,8 @@ import sql from "./sql.svg";
 import mapmymoments from "./mapmymoments.png";
 import moviemixer from "./moviemixer.png";
 import portcreditpost from "./portcreditpost.png";
+import initials from "./initials.png";
+
 export {
   python,
   java,
@@ -48,6 +50,7 @@ export {
   sql,
   figma,
   docker,
+  initials,
   flask,
   css,
   git,
