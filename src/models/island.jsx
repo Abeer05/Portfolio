@@ -92,8 +92,6 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
         default:
           setCurrentStage(null);
       }
-
-      // You can update your stages here based on the normalized rotation value
     }
   });
 
