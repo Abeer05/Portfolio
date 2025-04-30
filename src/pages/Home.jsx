@@ -21,11 +21,12 @@ const Home = () => {
 
     if (window.innerWidth < 768) {
       screenScale = [0.02, 0.02, 0.02];
-      screenPosition = [-0.5, -1, 0.2];
+      screenPosition = [-0.5, -1.5, 0.2];
     } else {
       screenScale = [0.025, 0.025, 0.025];
       screenPosition = [-0.5, -1.5, 0.2];
     }
+    console.log("screenScale", screenScale);
 
     return [screenScale, screenPosition, rotation];
   };
@@ -35,7 +36,7 @@ const Home = () => {
 
     if (window.innerWidth < 768) {
       screenScale = [0.0015, 0.0015, 0.0015];
-      screenPosition = [-0.1, -0.5, 2.7];
+      screenPosition = [-0.1, -0.82, 3];
     } else {
       screenScale = [0.0015, 0.0015, 0.0015];
       screenPosition = [-0.1, -0.82, 3.45];
