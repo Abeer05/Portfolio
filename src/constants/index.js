@@ -192,7 +192,7 @@ export const projects = [
     theme: "btn-back-pink",
     name: "Portfolio",
     description:
-      "Developed a unique, interactive 3D portfolio website to showcase my skills and projects in a visually captivating way! Built with React, React Three Fiber for 3D rendering, and styled using Tailwind CSS, the site features a floating island and engaging elements that respond to mouse and keyboard inputs. The portfolio includes sections for my projects, an about me page, and a contact form, all seamlessly integrated into an immersive user experience. Mobile view added soon.",
+      "Developed a unique, interactive 3D portfolio website to showcase my skills and projects in a visually captivating way! Built with React, React Three Fiber for 3D rendering, and styled using Tailwind CSS, the site features a floating island and engaging elements that respond to mouse and keyboard inputs. The portfolio includes sections for my projects, an about me page, and a contact form, all seamlessly integrated into an immersive user experience on all devices!",
     link: "https://github.com/Abeer05/Portfolio",
   },
 ];
