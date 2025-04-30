@@ -13,6 +13,18 @@ const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
 
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
     let screenPosition = null;
