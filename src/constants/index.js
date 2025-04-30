@@ -168,8 +168,8 @@ export const projects = [
     theme: "btn-back-green",
     name: "Map My Moments",
     description:
-      "Built a web application using the Google Maps JavaScript API that lets users explore and interact with a dynamic map by adding custom pins, showcasing their travel history. Each marker lets you add photos, write custom descriptions, and tag your friends! Future plans include integrating AI-powered features such as automatic catchy title + blurb generation based on location and photos uploaded, as well as future travel destination ideas!. Link coming soon.",
-    link: null,
+      "Built a sleek, interactive web application using the Google Maps JavaScript API that allows users to document and visualize their travel history. Users can place custom pins on a dynamic map, attach personalized descriptions, and upload photos! Integrated localStorage to ensure all pins persist across sessions, and designed a clean and intuitive UI focused on user experience and visual appeal.",
+    link: "https://github.com/Abeer05/MapMyMoments",
   },
   {
     iconUrl: moviemixer,
