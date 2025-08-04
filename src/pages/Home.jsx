@@ -70,6 +70,7 @@ const Home = () => {
           `${import.meta.env.VITE_WEATHER_API_URL}/weather?city=Toronto`
         );
         const data = await res.json();
+        console.log(import.meta.env.VITE_WEATHER_API_URL);
 
         // e.g., "Clear", "Clouds", "Rain"
         const weatherCondition =
