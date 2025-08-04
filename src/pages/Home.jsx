@@ -68,9 +68,9 @@ const Home = () => {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const res = await fetch(
-          `${import.meta.env.VITE_WEATHER_API_URL}/weather?city=Toronto`
-        );
+        const baseUrl =
+          import.meta.env.VITE_WEATHER_API_URL || "http://localhost:3001";
+        const res = await fetch(`${baseUrl}/weather?city=Toronto`);
         const data = await res.json();
 
         // e.g., "Clear", "Clouds", "Rain"
