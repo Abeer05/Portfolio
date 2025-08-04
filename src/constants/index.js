@@ -212,6 +212,8 @@ export const weatherConditions = [
       position: [2.5, 3, 0.5],
     },
     ambientLight: { intensity: 0.6 },
+    color: "bg-[#0a0f2c]",
+    opacity: "opacity-100",
   },
   {
     name: "clear",
@@ -227,6 +229,8 @@ export const weatherConditions = [
       position: [2.5, 3, 0.5],
     },
     ambientLight: { intensity: 0.8 },
+    color: "bg-yellow-400",
+    opacity: "opacity-100",
   },
   {
     name: "cloudy",
@@ -242,5 +246,7 @@ export const weatherConditions = [
       position: [2.5, 3, 0.5],
     },
     ambientLight: { intensity: 0.9 },
+    color: "bg-[#708090]",
+    opacity: "opacity-60",
   },
 ];

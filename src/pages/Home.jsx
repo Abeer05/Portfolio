@@ -9,6 +9,8 @@ import { DirectionalLightHelper } from "three";
 import { useHelper } from "@react-three/drei";
 import HomeInfo from "../components/HomeInfo.jsx";
 import { weatherConditions } from "../constants/index.js";
+import { useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three";
 
 console.log(import.meta.env.VITE_WEATHER_API_URL);
 
@@ -107,16 +109,9 @@ const Home = () => {
     cloudy: weatherConditions[2],
   };
 
-  const weatherConfig = weathers[weather] ?? {
-    skyColor: "#87ceeb",
-    hemisphereLight: { intensity: 1, color: "#ffffff", groundColor: "#aaaaaa" },
-    directionalLight: {
-      intensity: 1,
-      color: "#ffffff",
-      position: [2.5, 3, 0.5],
-    },
-    ambientLight: { intensity: 0.5 },
-  };
+  const weatherConfig = weathers[weather] ?? weatherConditions[1];
+
+  console.log(weatherConfig);
 
   return (
     <section className="w-full h-screen relative">
@@ -124,7 +119,9 @@ const Home = () => {
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
-        className={`w-full h-screen bg-transparent ${
+        className={`w-full h-full ${weatherConfig.color} ${
+          weatherConfig.opacity
+        } mix-blend-overlay absolute w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         shadows
@@ -137,6 +134,7 @@ const Home = () => {
             color={weatherConfig.hemisphereLight.color}
             groundColor={weatherConfig.hemisphereLight.groundColor}
           />
+
           <directionalLight
             castShadow
             intensity={weatherConfig.directionalLight.intensity}
