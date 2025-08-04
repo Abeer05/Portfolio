@@ -67,8 +67,7 @@ const Home = () => {
     async function fetchWeather() {
       try {
         const res = await fetch(
-          // PORT 3001
-          "https://portfolio-production-57d5.up.railway.app/weather?city=Toronto"
+          `${import.meta.env.VITE_WEATHER_API_URL}/weather?city=Toronto`
         );
         const data = await res.json();
 
