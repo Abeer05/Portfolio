@@ -107,6 +107,8 @@ const Home = () => {
     rainy: weatherConditions[0],
     clear: weatherConditions[1],
     cloudy: weatherConditions[2],
+    smoke: weatherConditions[2],
+    clouds: weatherConditions[2],
   };
 
   const weatherConfig = weathers[weather] ?? weatherConditions[1];
@@ -119,7 +121,7 @@ const Home = () => {
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
       <Canvas
-        className={`w-full h-full ${weatherConfig.color} ${
+        className={`w-full h-full ${
           weatherConfig.opacity
         } mix-blend-overlay absolute w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
