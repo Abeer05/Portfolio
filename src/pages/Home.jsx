@@ -10,6 +10,8 @@ import { useHelper } from "@react-three/drei";
 import HomeInfo from "../components/HomeInfo.jsx";
 import { weatherConditions } from "../constants/index.js";
 
+console.log(import.meta.env.VITE_WEATHER_API_URL);
+
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
@@ -70,7 +72,6 @@ const Home = () => {
           `${import.meta.env.VITE_WEATHER_API_URL}/weather?city=Toronto`
         );
         const data = await res.json();
-        console.log(import.meta.env.VITE_WEATHER_API_URL);
 
         // e.g., "Clear", "Clouds", "Rain"
         const weatherCondition =
