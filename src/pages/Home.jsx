@@ -18,6 +18,7 @@ const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [weather, setWeather] = useState(null);
+  const [iconCode, setWeatherIcon] = useState(null);
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -81,6 +82,11 @@ const Home = () => {
 
         console.log("Weather condition:", weatherCondition);
         setWeather(weatherCondition);
+
+        const iconCode = data?.weather?.[0]?.icon;
+        setWeatherIcon(iconCode);
+
+        console.log("Weather icon code:", iconCode);
       } catch (error) {
         console.error("Failed to fetch weather", error);
       }
@@ -118,7 +124,13 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage} />}
+        {currentStage && (
+          <HomeInfo
+            currentStage={currentStage}
+            weather={weather}
+            iconCode={iconCode}
+          />
+        )}
       </div>
       <Canvas
         className={`w-full h-full ${
