@@ -71,11 +71,11 @@ const Home = () => {
     async function fetchWeather() {
       try {
         const baseUrl =
-          import.meta.env.VITE_WEATHER_API_URL || "http://localhost:3001";
+          import.meta.env.VITE_WEATHER_API_URL?.trim() ||
+          "http://localhost:3001";
         const res = await fetch(`${baseUrl}/weather?city=Toronto`);
         const data = await res.json();
 
-        // e.g., "Clear", "Clouds", "Rain"
         const weatherCondition =
           data?.weather?.[0]?.main?.toLowerCase?.() || "clear";
 
