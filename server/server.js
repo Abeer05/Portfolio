@@ -5,7 +5,11 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://abeer-malik.vercel.app", "http://localhost:5173"],
+  })
+);
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
 
