@@ -8,10 +8,12 @@ import Girl from "../models/Girl.jsx";
 import { DirectionalLightHelper } from "three";
 import { useHelper } from "@react-three/drei";
 import HomeInfo from "../components/HomeInfo.jsx";
+import { weatherConditions } from "../constants/index.js";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [weather, setWeather] = useState(null);
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
@@ -61,6 +63,26 @@ const Home = () => {
     adjustIslandForScreenSize();
   const [girlScale, girlPosition] = adjustGirlForScreenSize();
 
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const res = await fetch("http://localhost:3001/weather?city=Toronto");
+        const data = await res.json();
+
+        // e.g., "Clear", "Clouds", "Rain"
+        const weatherCondition =
+          data?.weather?.[0]?.main?.toLowerCase?.() || "clear";
+
+        console.log("Weather condition:", weatherCondition);
+        setWeather(weatherCondition);
+      } catch (error) {
+        console.error("Failed to fetch weather", error);
+      }
+    }
+
+    fetchWeather();
+  }, []);
+
   // const LightWithHelper = () => {
   //   const lightRef = useRef();
   //   useHelper(lightRef, DirectionalLightHelper, 5, "red"); // Shows light direction
@@ -74,6 +96,23 @@ const Home = () => {
   //     />
   //   );
   // };
+
+  const weathers = {
+    rainy: weatherConditions[0],
+    clear: weatherConditions[1],
+    cloudy: weatherConditions[2],
+  };
+
+  const weatherConfig = weathers[weather] ?? {
+    skyColor: "#87ceeb",
+    hemisphereLight: { intensity: 1, color: "#ffffff", groundColor: "#aaaaaa" },
+    directionalLight: {
+      intensity: 1,
+      color: "#ffffff",
+      position: [2.5, 3, 0.5],
+    },
+    ambientLight: { intensity: 0.5 },
+  };
 
   return (
     <section className="w-full h-screen relative">
@@ -89,9 +128,18 @@ const Home = () => {
         gl={{ antialias: true }}
       >
         <Suspense fallback={<Loader />}>
-          <hemisphereLight intensity={2} />
-          <directionalLight castShadow intensity={2} position={[2.5, 3, 0.5]} />
-          <ambientLight intensity={1} />
+          <hemisphereLight
+            intensity={weatherConfig.hemisphereLight.intensity}
+            color={weatherConfig.hemisphereLight.color}
+            groundColor={weatherConfig.hemisphereLight.groundColor}
+          />
+          <directionalLight
+            castShadow
+            intensity={weatherConfig.directionalLight.intensity}
+            color={weatherConfig.directionalLight.color}
+            position={weatherConfig.directionalLight.position}
+          />
+          <ambientLight intensity={weatherConfig.ambientLight.intensity} />
           <Butterfly />
           <Sky isRotating={isRotating} />
           <Island

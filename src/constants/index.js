@@ -196,3 +196,51 @@ export const projects = [
     link: "https://github.com/Abeer05/Portfolio",
   },
 ];
+
+export const weatherConditions = [
+  {
+    name: "rainy",
+    skyColor: "#5a6b7a",
+    hemisphereLight: {
+      intensity: 1.2,
+      color: "#8a9bb0",
+      groundColor: "#6b7280",
+    },
+    directionalLight: {
+      intensity: 0.8,
+      color: "#9ca3af",
+      position: [2.5, 3, 0.5],
+    },
+    ambientLight: { intensity: 0.6 },
+  },
+  {
+    name: "clear",
+    skyColor: "#87ceeb",
+    hemisphereLight: {
+      intensity: 2.2,
+      color: "#ffffff",
+      groundColor: "#d4a574",
+    },
+    directionalLight: {
+      intensity: 2.5,
+      color: "#fff5e6",
+      position: [2.5, 3, 0.5],
+    },
+    ambientLight: { intensity: 0.8 },
+  },
+  {
+    name: "cloudy",
+    skyColor: "#a8b5c2",
+    hemisphereLight: {
+      intensity: 1.5,
+      color: "#e5eaf0",
+      groundColor: "#9ca3af",
+    },
+    directionalLight: {
+      intensity: 1.2,
+      color: "#d6dae0",
+      position: [2.5, 3, 0.5],
+    },
+    ambientLight: { intensity: 0.9 },
+  },
+];
