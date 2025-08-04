@@ -7,6 +7,12 @@ import { Canvas } from "@react-three/fiber";
 import useAlert from "../hooks/useAlert.js";
 import Alert from "../components/Alert.jsx";
 
+console.log("ENV CHECK", {
+  service: import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+  template: import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+});
+
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
