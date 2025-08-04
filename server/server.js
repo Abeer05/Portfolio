@@ -3,6 +3,7 @@ const axios = require("axios");
 const cors = require("cors");
 
 require("dotenv").config();
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(
@@ -12,6 +13,7 @@ app.use(
 );
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
+console.log("Loaded API key:", process.env.OPENWEATHERMAP_API_KEY);
 
 app.get("/weather", async (req, res) => {
   const { city = "Toronto" } = req.query;
@@ -28,6 +30,4 @@ app.get("/weather", async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
-  console.log("Weather API proxy running on http://localhost:3001");
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
