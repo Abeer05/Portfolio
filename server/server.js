@@ -13,6 +13,7 @@ app.use(
 );
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
+console.log("Loaded API key:", process.env.OPENWEATHERMAP_API_KEY);
 
 app.get("/weather", async (req, res) => {
   const { city = "Toronto" } = req.query;
