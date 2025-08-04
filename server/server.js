@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(
   cors({
-    origin: ["https://abeer-malik.vercel.app", "http://localhost:5173"],
+    origin: ["https://abeer-malik.vercel.app"], // PORT 5173
   })
 );
 

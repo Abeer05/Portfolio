@@ -66,7 +66,10 @@ const Home = () => {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const res = await fetch("http://localhost:3001/weather?city=Toronto");
+        const res = await fetch(
+          // PORT 3001
+          "https://portfolio-production-57d5.up.railway.app/weather?city=Toronto"
+        );
         const data = await res.json();
 
         // e.g., "Clear", "Clouds", "Rain"
