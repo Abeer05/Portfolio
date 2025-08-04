@@ -8,12 +8,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(
   cors({
-    origin: ["https://abeer-malik.vercel.app"], // PORT 5173
+    origin: ["https://abeer-malik.vercel.app", "http://localhost:5173"], // PORT 5173
   })
 );
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
-console.log("Loaded API key:", process.env.OPENWEATHERMAP_API_KEY);
 
 app.get("/weather", async (req, res) => {
   const { city = "Toronto" } = req.query;
