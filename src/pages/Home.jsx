@@ -12,8 +12,6 @@ import { weatherConditions } from "../constants/index.js";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
-console.log(import.meta.env.VITE_WEATHER_API_URL);
-
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
