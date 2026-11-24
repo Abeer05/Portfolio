@@ -87,8 +87,11 @@ const Home = () => {
 
           const data = await res.json();
 
-          const weatherCondition =
+          const rawWeather =
             data?.weather?.[0]?.main?.toLowerCase?.() || "clear";
+
+          const weatherCondition =
+            rawWeather === "clouds" ? "cloudy" : rawWeather;
 
           const iconCode = data?.weather?.[0]?.icon;
 
@@ -137,7 +140,6 @@ const Home = () => {
     clear: weatherConditions[1],
     cloudy: weatherConditions[2],
     smoke: weatherConditions[2],
-    clouds: weatherConditions[2],
   };
 
   const weatherConfig = weathers[weather] ?? weatherConditions[1];
