@@ -69,30 +69,55 @@ const Home = () => {
   const [girlScale, girlPosition] = adjustGirlForScreenSize();
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchWeather() {
-      try {
-        const baseUrl =
-          import.meta.env.VITE_WEATHER_API_URL?.trim() ||
-          "http://localhost:3001";
-        const res = await fetch(`${baseUrl}/weather?city=Toronto`);
-        const data = await res.json();
+      const baseUrl =
+        import.meta.env.VITE_WEATHER_API_URL?.trim() || "http://localhost:3001";
 
-        const weatherCondition =
-          data?.weather?.[0]?.main?.toLowerCase?.() || "clear";
+      const maxAttempts = 5;
 
-        console.log("Weather condition:", weatherCondition);
-        setWeather(weatherCondition);
+      for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+          console.log(`Fetching weather (attempt ${attempt})...`);
 
-        const iconCode = data?.weather?.[0]?.icon;
-        setWeatherIcon(iconCode);
+          const res = await fetch(`${baseUrl}/weather?city=Toronto`);
 
-        console.log("Weather icon code:", iconCode);
-      } catch (error) {
-        console.error("Failed to fetch weather", error);
+          if (!res.ok) {
+            throw new Error(`HTTP error: ${res.status}`);
+          }
+
+          const data = await res.json();
+
+          const weatherCondition =
+            data?.weather?.[0]?.main?.toLowerCase?.() || "clear";
+
+          const iconCode = data?.weather?.[0]?.icon;
+
+          if (isMounted) {
+            setWeather(weatherCondition);
+            setWeatherIcon(iconCode);
+          }
+
+          console.log("Weather loaded successfully!");
+          return;
+        } catch (error) {
+          console.error(`Weather attempt ${attempt} failed:`, error);
+
+          if (attempt < maxAttempts) {
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+          }
+        }
       }
+
+      console.error("Unable to load weather after multiple attempts.");
     }
 
     fetchWeather();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // const LightWithHelper = () => {
