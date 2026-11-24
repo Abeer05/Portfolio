@@ -22,7 +22,7 @@ const HomeInfo = ({ currentStage, weather, iconCode }) => {
         <br /> an aspiring software developer from Toronto, ON!
         <br />
         <span className="text-sm items-center gap-2">
-          Toronto's current weather: {weather || "fetching..."}!
+          {weather ? `Currently ${weather}!` : "Checking the weather..."}
           {iconCode && (
             <img
               src={`https://openweathermap.org/img/wn/${iconCode}@2x.png`}
