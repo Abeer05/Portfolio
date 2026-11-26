@@ -9,7 +9,7 @@ const app = express();
 app.use(
   cors({
     origin: ["https://abeer-malik.vercel.app", "http://localhost:5173"], // PORT 5173
-  })
+  }),
 );
 
 const API_KEY = process.env.OPENWEATHERMAP_API_KEY;
@@ -19,7 +19,7 @@ app.get("/weather", async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`,
     );
 
     res.json(response.data);
